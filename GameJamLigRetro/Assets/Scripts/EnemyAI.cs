@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Target").transform;
 
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
@@ -53,12 +54,12 @@ public class EnemyAI : MonoBehaviour
         }
 
 
-        Vector2  direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force =  direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
         
-        float distance =Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if(distance < nextWaypointDistance)
         {
