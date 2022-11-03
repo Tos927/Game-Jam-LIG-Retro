@@ -8,7 +8,11 @@ public class Spawner : MonoBehaviour
     public List<GameObject> spawnPoints;
     public GameObject ia;
 
-    public float timer;
+    public float spawnTimer;
+    public float waveTimer;
+
+    private int amountOfEnemy = 4;
+
     
     private bool secure = true;
       
@@ -31,16 +35,22 @@ public class Spawner : MonoBehaviour
     
     private IEnumerator SpawnIa()
     {
-        
-        for(int i = 0 ; i<4; i++){
-            for(int y = 0 ; y < spawnPoints.Count ; y++)
+        for(int k = 0 ; k < 4; k++)
         {
-            Instantiate(ia, spawnPoints[y].transform);
-            
+            for(int j = 0 ; j < amountOfEnemy ; j++)
+            {
+                for(int i = 0 ; i < spawnPoints.Count ; i++)
+                {
+                    Instantiate(ia, spawnPoints[i].transform);
+                
 
+                }
+                yield return new WaitForSeconds(spawnTimer);
+            }
+            amountOfEnemy ++;
+            yield return new WaitForSeconds(waveTimer);
         }
-            yield return new WaitForSeconds(timer);
-        }
+            
         
     }
 }
