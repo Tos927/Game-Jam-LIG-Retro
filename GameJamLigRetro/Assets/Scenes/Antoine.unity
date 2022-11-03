@@ -530,8 +530,13 @@ MonoBehaviour:
   - {fileID: 1152838042}
   - {fileID: 633532972}
   ia: {fileID: 5642249131091439632, guid: 111c23d3a1e669342984fc493e26f3a0, type: 3}
+  iaFast: {fileID: 5642249131091439632, guid: a36d8a4e57bd4004ba7611640c1299ad, type: 3}
+  iaTank: {fileID: 5642249131091439632, guid: c4d174bc1574f8e4fb4d9a3d3da35bc3, type: 3}
   spawnTimer: 1.5
-  waveTimer: 15
+  waveTimer: 4
+  normalMultiplier: 1.04
+  fastMultiplier: 1.05
+  tankMultiplier: 1.02
 --- !u!4 &1859951249
 Transform:
   m_ObjectHideFlags: 0
