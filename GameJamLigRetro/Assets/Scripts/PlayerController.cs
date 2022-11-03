@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
+
+        }
 
     void FixedUpdate()
     {
@@ -35,5 +36,15 @@ public class PlayerController : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.tag == "SpeedBoost")
+        {
+            moveSpeed++;
+        }
+
     }
 }
