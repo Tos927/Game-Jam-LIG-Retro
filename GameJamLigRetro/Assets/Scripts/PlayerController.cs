@@ -4,40 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb2D;
-    private float moveSpeed;
-    private float moveHorizontal;
-    private float moveVertical;
+    public float moveSpeed = 5f;
 
-    // Start is called before the first frame update
+    public Rigidbody2D rb;
+
+    Vector2 movement;
+
     void Start()
     {
-
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
-
-        moveSpeed = 3f;
-        rb2D.drag = 100.0f;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
     }
 
     void FixedUpdate()
     {
-        if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
-        {
-            rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
-        }
 
-        if (moveVertical > 0.1f || moveVertical < -0.1f)
-        {
-            rb2D.AddForce(new Vector2(0f, moveVertical * moveSpeed), ForceMode2D.Impulse);
-        }
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
     }
 }
