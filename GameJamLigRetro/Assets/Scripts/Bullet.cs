@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 
     public float speed = 20f;
     public Rigidbody2D rb;
+    public Enemy Enemy;
+    public float Damage = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -14,10 +16,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-
-    
-    void OnTriggerEnter2D (Collider2D hitInfo)
+    void OnTriggerEnter2D (Collider2D collision)
     {
+        if( collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(Damage);
+        }
+        
         Destroy(gameObject);
     }
 }

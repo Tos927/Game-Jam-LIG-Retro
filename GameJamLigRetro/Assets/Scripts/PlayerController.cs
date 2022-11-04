@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+    public Weapon Wp;
+    public Bullet Bt;
 
 
     Vector2 movement;
@@ -45,6 +47,20 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed++;
         }
+
+        if (collision.tag == "AttackSpeedBoost")
+        {
+            Wp.Cadence -= 0.5f;
+        }
+
+        if (collision.tag == "AttackBoost")
+        {
+            Debug.Log("Yes");
+            Bt.Damage += 0.5f;
+        }
+
+
+
 
     }
 }

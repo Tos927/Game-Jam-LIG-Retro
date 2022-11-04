@@ -6,13 +6,21 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    private float BulletSpeed = 3f;
+    public float Cadence = 3f;
 
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-            Shoot();
+
+        if (Input.GetMouseButton(0))
+        {
+            BulletSpeed -= Time.deltaTime;
+            if (Mathf.Round(BulletSpeed) == 0)
+            {
+                Shoot();
+                BulletSpeed = Cadence;
+            }
+        }
     }
 
     void Shoot()
@@ -20,5 +28,7 @@ public class Weapon : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
     }
+
+    
 }   
 
