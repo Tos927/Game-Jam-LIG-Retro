@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class fastAI : MonoBehaviour
 {
 
-    public Transform target;
+    private Transform target;
+
+    public LayerMask icecreamMachine;
+    public float fastHeatlh;
+
 
     public float speed;
     public float nextWaypointDistance;
@@ -17,12 +21,14 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    private Collider2D col;
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
         target = GameObject.FindGameObjectWithTag("Target").transform;
 
         seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -37,7 +43,15 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
+    void Update()
+    {
+        if(col.IsTouchingLayers(icecreamMachine)){
+            Destroy(gameObject);
+        }
+    }
+
+
     void FixedUpdate()
     {
         if(path == null){

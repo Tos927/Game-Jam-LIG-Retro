@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3350158968832968099}
   - component: {fileID: 2181768227463994099}
   - component: {fileID: 5589164131280471825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IA fast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2ddbaee07fb524f8cfe7a1ebc2d2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  icecreamMachine:
+    serializedVersion: 2
+    m_Bits: 128
+  fastHeatlh: 50
   speed: 350
   nextWaypointDistance: 0.5
