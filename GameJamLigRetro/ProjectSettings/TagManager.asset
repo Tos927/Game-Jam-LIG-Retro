@@ -3,15 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Target
+  - SpeedBoost
+  - Coin
+  - AttackSpeedBoost
+  - Enemy
+  - AttackBoost
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Murs
   - 
   - 
   - 
