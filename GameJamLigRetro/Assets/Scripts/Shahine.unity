@@ -342,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879483541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.504, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 0.8125, y: 1.7625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -453,8 +453,6 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 1808532529}
   cam: {fileID: 167140305}
-  Wp: {fileID: 1808532530}
-  Bt: {fileID: 3931462924450198541, guid: 4f4221cdf1e8fc64986c1191809cb23d, type: 3}
 --- !u!70 &1808532528
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -505,5 +503,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 879483542}
-  bulletPrefab: {fileID: 5833442726798629624, guid: 12656b9a599e7f54795e84b5915ec846, type: 3}
+  bulletPrefab: {fileID: 926777803236978661, guid: 4f4221cdf1e8fc64986c1191809cb23d, type: 3}
   Cadence: 3

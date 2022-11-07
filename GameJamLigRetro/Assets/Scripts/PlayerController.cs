@@ -8,17 +8,12 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
-    public Weapon Wp;
-    public Bullet Bt;
+    //public Weapon Wp;
+    //public Bullet Bt;
 
 
     Vector2 movement;
     Vector2 mousePos;
-
-    void Start()
-    {
-    }
-
 
     void Update()
     {
@@ -28,11 +23,10 @@ public class PlayerController : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        }
+    }
 
     void FixedUpdate()
     {
-
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
@@ -50,13 +44,13 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "AttackSpeedBoost")
         {
-            Wp.Cadence -= 0.5f;
+            //Wp.Cadence -= 0.5f;
         }
 
         if (collision.tag == "AttackBoost")
         {
             Debug.Log("Yes");
-            Bt.Damage += 0.5f;
+            //Bt.Damage += 0.5f;
         }
 
 
