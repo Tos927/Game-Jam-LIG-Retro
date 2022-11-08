@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject iaFast;
     public GameObject iaTank;
 
-    public float spawnTimer;
+    public float instantiateTimer;
     public float waveTimer;
 
     private int waveNumber = 1;
@@ -26,7 +26,6 @@ public class Spawner : MonoBehaviour
     private float amountofTank = 1f;
     public float tankMultiplier;
 
-    
     private bool secure = true;
       
     
@@ -45,7 +44,8 @@ public class Spawner : MonoBehaviour
         
     }
     
-    
+
+
     private IEnumerator SpawnIa()
     {
         for(int k = 0 ; k < 5; k++)
@@ -61,20 +61,20 @@ public class Spawner : MonoBehaviour
                 
 
                 }
-                yield return new WaitForSeconds(spawnTimer);
+                yield return new WaitForSeconds(instantiateTimer);
             }
             
             
             
-            for(int j = 0 ; j < amountOfNormal ; j++)
+            for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
             {
-                for(int i = 0 ; i < spawnPoints.Count ; i++)
+                for(int iNormal = 0 ; iNormal < spawnPoints.Count ; iNormal++)
                 {
-                    Instantiate(ia, spawnPoints[i].transform);
+                    Instantiate(ia, spawnPoints[iNormal].transform);
                 
 
                 }
-                yield return new WaitForSeconds(spawnTimer);
+                yield return new WaitForSeconds(instantiateTimer);
             }
             
             
@@ -87,7 +87,7 @@ public class Spawner : MonoBehaviour
                     }
                                     
                 }
-                yield return new WaitForSeconds(spawnTimer);
+                yield return new WaitForSeconds(instantiateTimer);
             }
             
             waveNumber ++;
