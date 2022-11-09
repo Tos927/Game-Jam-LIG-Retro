@@ -23,5 +23,11 @@ public class BaseHP : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public bool isDead(){
+        if(health<=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

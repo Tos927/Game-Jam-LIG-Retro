@@ -27,6 +27,12 @@ public class SpawnerV2 : MonoBehaviour
     private float amountOfTank = 1f;
     public float tankMultiplier;
 
+
+    public List<GameObject> powerUpSpawns;
+    public GameObject AttackBoost;
+
+
+
     private bool secure = true;
 
     private bool test = false;
@@ -39,7 +45,7 @@ public class SpawnerV2 : MonoBehaviour
         if(secure)
         {
            
-            StartCoroutine(SpawnIa());
+            StartCoroutine(GameLoop());
                 
             
             secure = false;
@@ -48,30 +54,44 @@ public class SpawnerV2 : MonoBehaviour
     }
     
 
-    private IEnumerator SpawnIa()
+    private IEnumerator GameLoop()
     {
-        for(int k = 0 ; k < 10; k++)
+        for(int k = 0 ; k < 15; k++)
         {
+            //spawn des powerUp
+
+            int random = Random.Range(0,6);
+            Instantiate(AttackBoost,powerUpSpawns[random].transform);
+
+
+
+            //Spawn des IA
             if(waveAfterSpawnTimerNull <2)
             {
                
                 for(int i = 0 ; i < spawnPoints.Count ; i++)
                 {
-                    for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                    if(waveNumber > 4)
                     {
-                        Instantiate(iaTank, spawnPoints[i].transform);
-                        yield return new WaitForSeconds(instantiateTimer);
+                        for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                        {
+                            Instantiate(iaTank, spawnPoints[i].transform);
+                            yield return new WaitForSeconds(instantiateTimer);
+                        }
                     }
                     for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
                     {
                         Instantiate(ia, spawnPoints[i].transform);
                         yield return new WaitForSeconds(instantiateTimer);
                     }
-                    for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
-                    {
-                        Instantiate(iaFast, spawnPoints[i].transform);
-                        yield return new WaitForSeconds(instantiateTimer);
+                    if(waveNumber >2){
+                       for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                        {
+                            Instantiate(iaFast, spawnPoints[i].transform);
+                            yield return new WaitForSeconds(instantiateTimer);
+                        } 
                     }
+                    
                     yield return new WaitForSeconds(spawnTimer);
                 }
             }
