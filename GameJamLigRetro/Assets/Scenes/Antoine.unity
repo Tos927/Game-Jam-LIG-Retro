@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea6547018289f34090935ad0fcfc267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10000
+  health: 1000000
   minDamage: 5
 --- !u!58 &123356913
 CircleCollider2D:
@@ -589,7 +589,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1859951249}
-  - component: {fileID: 1859951248}
   - component: {fileID: 1859951250}
   m_Layer: 0
   m_Name: SpawnManager
@@ -598,31 +597,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1859951248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859951247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcab6d4bf46f544841d434671a88ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1547522230}
-  - {fileID: 2109933788}
-  - {fileID: 1152838042}
-  - {fileID: 633532972}
-  ia: {fileID: 5642249131091439632, guid: 111c23d3a1e669342984fc493e26f3a0, type: 3}
-  iaFast: {fileID: 5642249131091439632, guid: a36d8a4e57bd4004ba7611640c1299ad, type: 3}
-  iaTank: {fileID: 5642249131091439632, guid: c4d174bc1574f8e4fb4d9a3d3da35bc3, type: 3}
-  instantiateTimer: 1.5
-  waveTimer: 4
-  normalMultiplier: 1.04
-  fastMultiplier: 1.05
-  tankMultiplier: 1.02
 --- !u!4 &1859951249
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +621,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859951247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523fcedb05d059f4f98ca42662d382da, type: 3}
+  m_Script: {fileID: 11500000, guid: ce40468cc00b1364db06193cfaeace66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
@@ -658,11 +632,14 @@ MonoBehaviour:
   ia: {fileID: 5642249131091439632, guid: 111c23d3a1e669342984fc493e26f3a0, type: 3}
   iaFast: {fileID: 5642249131091439632, guid: a36d8a4e57bd4004ba7611640c1299ad, type: 3}
   iaTank: {fileID: 5642249131091439632, guid: c4d174bc1574f8e4fb4d9a3d3da35bc3, type: 3}
-  instantiateTimer: 1.5
+  instantiateTimer: 1
+  spawnTimer: 1
+  spawnTimerDiminution: 0.5
   waveTimer: 4
-  normalMultiplier: 1.04
-  fastMultiplier: 1.05
-  tankMultiplier: 1.02
+  waveAfterSpawnTimerNull: 0
+  normalMultiplier: 1
+  fastMultiplier: 1
+  tankMultiplier: 1
 --- !u!1 &1992230331
 GameObject:
   m_ObjectHideFlags: 0

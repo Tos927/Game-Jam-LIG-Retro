@@ -10,11 +10,13 @@ public class SpawnerV2 : MonoBehaviour
     public GameObject iaTank;
 
     public float instantiateTimer;
+    public float spawnTimer;
+    public float spawnTimerDiminution;
     public float waveTimer;
 
     private int waveNumber = 1;
-
-
+    [SerializeField] private int waveAfterSpawnTimerNull = 0;
+    
     private float amountOfNormal = 3f;
     public float normalMultiplier;
 
@@ -22,10 +24,12 @@ public class SpawnerV2 : MonoBehaviour
     public float fastMultiplier;
 
 
-    private float amountofTank = 1f;
+    private float amountOfTank = 1f;
     public float tankMultiplier;
 
     private bool secure = true;
+
+    private bool test = false;
       
     
     
@@ -42,17 +46,191 @@ public class SpawnerV2 : MonoBehaviour
         }
         
     }
+    
 
     private IEnumerator SpawnIa()
     {
+        for(int k = 0 ; k < 10; k++)
+        {
+            if(waveAfterSpawnTimerNull <2)
+            {
+               
+                for(int i = 0 ; i < spawnPoints.Count ; i++)
+                {
+                    for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    yield return new WaitForSeconds(spawnTimer);
+                }
+            }
+
+            
+
+            if(waveAfterSpawnTimerNull == 2)
+            {
+                
+                for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                {
+                    for(int iTank = 0 ; iTank < 2 ; iTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[iTank].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }                
+                for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                {
+                    for(int iNormal = 0 ; iNormal < 2 ; iNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[iNormal].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+                for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                {
+                    for(int iFast = 0 ; iFast < 2 ; iFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[iFast].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+
+                for(int i = 2 ; i < spawnPoints.Count ; i++)
+                {
+                    
+                    for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                }
 
 
+            }
+                        
+            if(waveAfterSpawnTimerNull == 3)
+            {  
+                for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                {
+                    for(int iTank = 0 ; iTank < 3 ; iTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[iTank].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+                for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                {
+                    for(int iNormal = 0 ; iNormal < 3 ; iNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[iNormal].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+                for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                {
+                    for(int iFast = 0 ; iFast < 3 ; iFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[iFast].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
 
 
+                for(int i = 3 ; i < spawnPoints.Count ; i++)
+                {
+                    for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                    for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[i].transform);
+                        yield return new WaitForSeconds(instantiateTimer);
+                    }
+                }
 
 
+            }
 
-        yield return new WaitForSeconds(1);
+            if(waveAfterSpawnTimerNull ==4)
+            {
+                
+                
+                for(int jTank = 0 ; jTank < amountOfTank ; jTank++)
+                {
+                    for(int iTank = 0 ; iTank < spawnPoints.Count ; iTank++)
+                    {
+                        Instantiate(iaTank, spawnPoints[iTank].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+                for(int jNormal = 0 ; jNormal < amountOfNormal ; jNormal++)
+                {
+                    for(int iNormal = 0 ; iNormal < spawnPoints.Count ; iNormal++)
+                    {
+                        Instantiate(ia, spawnPoints[iNormal].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+                for(int jFast = 0 ; jFast < amountOfFast ; jFast++)
+                {
+                    for(int iFast = 0 ; iFast < spawnPoints.Count ; iFast++)
+                    {
+                        Instantiate(iaFast, spawnPoints[iFast].transform);
+                    }
+                    yield return new WaitForSeconds(instantiateTimer);
+                }
+            
+            
+            }
+            
+            waveNumber ++;
+            if(spawnTimer >0.5){
+                spawnTimer *= spawnTimerDiminution;
+            }else if(spawnTimer <= 0.5){
+                spawnTimer= 0;
+            } 
+            if(spawnTimer == 0){
+                waveAfterSpawnTimerNull ++;
+            }
+            amountOfNormal *= normalMultiplier;
+            if(waveNumber > 3)
+            {
+                amountOfFast *= fastMultiplier;
+            }
+            if(waveNumber > 5){
+                amountOfTank *= tankMultiplier;
+            }
+            yield return new WaitForSeconds(waveTimer);
+        }
+            
+        
     }
-
 }
