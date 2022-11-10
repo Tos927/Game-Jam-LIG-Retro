@@ -82,4 +82,16 @@ public class normalAI : MonoBehaviour
 
     }
 
+
+    void TakingDamage(int damage){
+        heatlh -= damage;
+
+        if(heatlh <=0){
+            Die();
+        }
+    }
+
+    void Die(){
+        Destroy(gameObject);
+    }
 }

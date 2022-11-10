@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     private float BulletSpeed = 3f;
-    public float Cadence = 3f;
+    public float Cadence;
 
     void Update()
     {
