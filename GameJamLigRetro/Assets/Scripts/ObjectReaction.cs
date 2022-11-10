@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectReaction : MonoBehaviour
 {
-    
+    public Score sc;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +13,7 @@ public class ObjectReaction : MonoBehaviour
             if (collision.tag == "Player")
             {
                 Destroy(gameObject);
+                Score.instance.AddPoint(100);
             }
         }
 

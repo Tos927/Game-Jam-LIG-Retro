@@ -5,15 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
+    private float rotationSpeed = 720f;
     public Rigidbody2D rb;
     public Camera cam;
     public Weapon Wp;
     public Bullet Bt;
 
-
-    Vector2 movement;
-    Vector2 mousePos;
 
     void Start()
     {
@@ -22,22 +19,26 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 movementDirection = new Vector2(horizontalInput, verticalInput);
+        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
+        movementDirection.Normalize();
 
+        transform.Translate(movementDirection*moveSpeed*inputMagnitude*Time.deltaTime, Space.World);
+
+        if (movementDirection!=Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movementDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+    }
 
     void FixedUpdate()
     {
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "AttackBoost")
         {
-            Debug.Log("Yes");
             Bt.Damage += 0.5f;
         }
 
