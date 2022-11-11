@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public Weapon Wp;
     public Bullet Bt;
 
+    public float atbValue;
+    public float abValue;
+    public float sbValue;
+
 
     Vector2 movement;
     Vector2 mousePos;
@@ -45,17 +49,17 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "SpeedBoost")
         {
-            moveSpeed++;
+            moveSpeed += sbValue;
         }
 
         if (collision.tag == "AttackSpeedBoost")
         {
-            Wp.Cadence -= 0.5f;
+            Wp.Cadence -= atbValue;
         }
 
         if (collision.tag == "AttackBoost")
         {
-            Bt.bulletDamage += 0.5f;
+            Bt.bulletDamage += abValue;
         }
 
 
