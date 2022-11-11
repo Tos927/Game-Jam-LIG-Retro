@@ -1464,9 +1464,9 @@ MonoBehaviour:
   spawnTimerDiminution: 0.9
   waveTimer: 15
   waveAfterSpawnTimerNull: 0
-  normalMultiplier: 1.01
-  fastMultiplier: 1
-  tankMultiplier: 1
+  normalMultiplier: 1.2
+  fastMultiplier: 1.1
+  tankMultiplier: 1.1
   powerUpSpawns:
   - {fileID: 422905294}
   - {fileID: 1836328374}

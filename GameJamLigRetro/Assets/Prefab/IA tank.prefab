@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1289dcdc1ad9e2348ac5f1f39c261709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatlh: 200
+  heatlh: 20
   target: {fileID: 0}
   speed: 100
   nextWaypointDistance: 0.5
