@@ -7,8 +7,8 @@ public class Bullet : MonoBehaviour
 
     public float speed = 20f;
     public Rigidbody2D rb;
-    public Enemy Enemy;
-    public float Damage = 2f;
+    
+    public float bulletDamage = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +16,21 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    void OnTriggerEnter2D (Collider2D collision)
+    void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        if( collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
-        {
-            enemyComponent.TakeDamage(Damage);
+        normalAI normal = hitInfo.GetComponent<normalAI>();
+        if(normal != null){
+            normal.TakingDamage(bulletDamage);
         }
+        fastAI fast = hitInfo.GetComponent<fastAI>();
+        if(fast != null){
+            fast.TakingDamage(bulletDamage);
+        }
+        tankAI tank = hitInfo.GetComponent<tankAI>();
+        if(tank != null){
+            tank.TakingDamage(bulletDamage);
+        }
+        
         
         Destroy(gameObject);
     }

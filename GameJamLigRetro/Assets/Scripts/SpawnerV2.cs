@@ -28,8 +28,12 @@ public class SpawnerV2 : MonoBehaviour
     public float tankMultiplier;
 
 
-    public List<GameObject> powerUpSpawns;
+    public List<GameObject> attackBoostSpawns;
+    public List<GameObject> attackSpeedBoostSpawns;
+    public List<GameObject> SpeedBoostSpawns;
     public GameObject AttackBoost;
+    public GameObject AttackSpeedBoost;
+    public GameObject SpeedBoost;
 
 
 
@@ -60,8 +64,16 @@ public class SpawnerV2 : MonoBehaviour
         {
             //spawn des powerUp
 
+            Destroy(GameObject.FindGameObjectWithTag("AttackBoost"));
+            Destroy(GameObject.FindGameObjectWithTag("AttackSpeedBoost"));
+            Destroy(GameObject.FindGameObjectWithTag("SpeedBoost"));
             int random = Random.Range(0,6);
-            Instantiate(AttackBoost,powerUpSpawns[random].transform);
+            Instantiate(AttackBoost,attackBoostSpawns[random].transform);
+            int random1 = Random.Range(0,6);
+            Instantiate(AttackSpeedBoost,attackSpeedBoostSpawns[random1].transform);
+            int random2 = Random.Range(0,6);
+            Instantiate(SpeedBoost,SpeedBoostSpawns[random2].transform);
+            
 
 
 

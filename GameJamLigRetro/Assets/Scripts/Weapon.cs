@@ -6,27 +6,42 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    private float BulletSpeed = 3f;
     public float Cadence;
+    private bool canShoot;
+    private bool isShooting;
 
+    void Start()
+    {
+        canShoot =true;
+        isShooting =false;
+    }
+    
+    
     void Update()
     {
 
         if (Input.GetMouseButton(0))
         {
-            BulletSpeed -= Time.deltaTime;
-            if (Mathf.Round(BulletSpeed) == 0)
+            
+            if (canShoot && !isShooting)
             {
-                Shoot();
-                BulletSpeed = Cadence;
+                StartCoroutine(Shoot());
+                
             }
         }
     }
 
-    void Shoot()
+    private IEnumerator Shoot()
     {
+        
+        canShoot = false;
+        isShooting = true;
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+        yield return new WaitForSeconds(Cadence);
+        isShooting = false;
+        canShoot = true;
+    
+        
     }
 
     

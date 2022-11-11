@@ -29,6 +29,7 @@ public class normalAI : MonoBehaviour
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
+
     void OnPathComplete(Path p)
     {
         if(!p.error)
@@ -83,7 +84,7 @@ public class normalAI : MonoBehaviour
     }
 
 
-    void TakingDamage(int damage){
+    public void TakingDamage(float damage){
         heatlh -= damage;
 
         if(heatlh <=0){
@@ -94,4 +95,6 @@ public class normalAI : MonoBehaviour
     void Die(){
         Destroy(gameObject);
     }
+
+ 
 }
