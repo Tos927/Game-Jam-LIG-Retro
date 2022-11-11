@@ -86,7 +86,7 @@ public class fastAI : MonoBehaviour
 
     }
 
-    void TakingDamage(int damage){
+    public void TakingDamage(float damage){
         heatlh -= damage;
 
         if(heatlh <=0){

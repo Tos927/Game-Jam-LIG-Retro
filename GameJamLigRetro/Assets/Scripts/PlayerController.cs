@@ -55,8 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "AttackBoost")
         {
-            Debug.Log("Yes");
-            Bt.Damage += 0.5f;
+            Bt.bulletDamage += 0.5f;
         }
 
 
