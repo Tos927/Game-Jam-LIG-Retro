@@ -2012,9 +2012,9 @@ MonoBehaviour:
   cam: {fileID: 497990600}
   Wp: {fileID: 1846767746}
   Bt: {fileID: 3931462924450198541, guid: 4f4221cdf1e8fc64986c1191809cb23d, type: 3}
-  atbValue: 0.1
-  abValue: 20
-  sbValue: 10
+  atbValue: 0.025
+  abValue: 0.5
+  sbValue: 0.5
 --- !u!70 &1846767748
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2159,12 +2159,12 @@ MonoBehaviour:
   iaTank: {fileID: 5642249131091439632, guid: c4d174bc1574f8e4fb4d9a3d3da35bc3, type: 3}
   instantiateTimer: 1
   spawnTimer: 1
-  spawnTimerDiminution: 1
-  waveTimer: 12
+  spawnTimerDiminution: 0.85
+  waveTimer: 7.5
   waveAfterSpawnTimerNull: 0
-  normalMultiplier: 1.15
-  fastMultiplier: 1.1
-  tankMultiplier: 1.1
+  normalMultiplier: 1.1
+  fastMultiplier: 1.05
+  tankMultiplier: 1.025
   attackBoostSpawns:
   - {fileID: 422905294}
   - {fileID: 1836328374}

@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heatlh: 10
   target: {fileID: 0}
-  speed: 350
+  speed: 400
   nextWaypointDistance: 0.5
 --- !u!114 &-1625581086153614807
 MonoBehaviour:

@@ -60,7 +60,7 @@ public class SpawnerV2 : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        for(int k = 0 ; k < 15; k++)
+        for(int k = 0 ; k < 50; k++)
         {
             //spawn des powerUp
 
