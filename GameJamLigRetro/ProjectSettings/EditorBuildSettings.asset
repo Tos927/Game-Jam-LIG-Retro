@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: "Assets/Scenes/Timoth\xE9.unity"
+    guid: e7baffbafac5ee04fbdcaf6e9431e152
   m_configObjects: {}

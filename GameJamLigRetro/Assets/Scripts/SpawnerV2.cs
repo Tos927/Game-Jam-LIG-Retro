@@ -14,6 +14,7 @@ public class SpawnerV2 : MonoBehaviour
     public float spawnTimerDiminution;
     public float waveTimer;
 
+    public int numberOfWaves = 15;
     private int waveNumber = 1;
     [SerializeField] private int waveAfterSpawnTimerNull = 0;
     
@@ -36,12 +37,10 @@ public class SpawnerV2 : MonoBehaviour
     public GameObject SpeedBoost;
 
 
-
     private bool secure = true;
 
     private bool test = false;
       
-    
     
     void Update()
     {
@@ -60,7 +59,7 @@ public class SpawnerV2 : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        for(int k = 0 ; k < 15; k++)
+        for(int k = 0 ; k < numberOfWaves; k++)
         {
             //spawn des powerUp
 
